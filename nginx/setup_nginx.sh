@@ -15,6 +15,8 @@ openssl x509 -req -in /home/nraghu/work/puppet_master_container/nginx/certs/serv
 #sudo sh -c "echo -n 'raghu:' >> /home/nraghu/nginx/.htpasswd"
 #sudo sh -c "openssl passwd -apr1 >> /home/nraghu/nginx/.htpasswd"
 
+echo "creating the nginx container"
+
 sudo docker run --name test_nginx -d --net puppet -v /home/nraghu/work/puppet_master_container/nginx/default.conf:/etc/nginx/conf.d/default.conf -v /home/nraghu/work/puppet_master_container/nginx/.htpasswd:/etc/nginx/.htpasswd -v /home/nraghu/work/puppet_master_container/nginx/nginx.conf:/etc/nginx/nginx.conf -v /home/nraghu/work/puppet_master_container/nginx/certs/server.csr:/etc/nginx/server.csr -v /home/nraghu/work/puppet_master_container/nginx/certs/server.key:/etc/nginx/server.key -v /home/nraghu/work/puppet_master_container/nginx/certs/server.crt:/etc/nginx/server.crt -v /home/nraghu/packages/:/home/ -p 8141:8141 nginx:1.15.5
 
 
