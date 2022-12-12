@@ -4,7 +4,7 @@ sudo docker network create puppet
 
 sudo docker pull nginx:1.15.5
 
-"echo creating the nginx certificate"
+echo "creating the nginx certificate"
 
 openssl genrsa -out /home/nraghu/work/puppet_master_container/nginx/certs/server.key 2048
 
