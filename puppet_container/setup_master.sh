@@ -1,6 +1,20 @@
-sudo docker network create puppet
+#!/bin/bash
 
-sudo docker pull puppet/puppetserver:6.0.3
+network=`sudo docker network ls | grep -i puppet | awk -F ' ' '{print$2}'`
+
+if [ $network ];then
+   echo "Puppet docker network already exit"
+else
+   sudo docker network create puppet
+fi
+
+image=`sudo docker images | grep -i puppet/puppetserver | awk -F ' ' '{print$2}'`
+if [ $image ];then
+   echo "The puppet server 6.0.3 already exits"
+else
+   sudo docker pull puppet/puppetserver:6.0.3
+fi
+
 cwd=`pwd`
 echo $cwd
 
