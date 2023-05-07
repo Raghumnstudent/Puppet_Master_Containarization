@@ -1,5 +1,7 @@
 #! /bin/bash
 
+echo "Raghu M N"
+
 echo "Creating the docker network for puppet master and agent"
 docker network create puppet
 
